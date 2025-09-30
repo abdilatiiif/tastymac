@@ -7,10 +7,15 @@ function Items() {
 
   console.log(products);
   return (
-    <div className="border-2 p-10 flex items-center justify-center">
-      items container
+    <div className="flex flex-wrap items-center justify-center gap-4 p-10 border-2">
       {products.map((p) => (
-        <Item key={p.id} product={p.name} price={p.price} />
+        <Item
+          key={p.id}
+          product={p.name}
+          price={p.price}
+          image={p.image}
+          category={p.category}
+        />
       ))}
     </div>
   );
