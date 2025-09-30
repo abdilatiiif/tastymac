@@ -1,10 +1,9 @@
 import { ShoppingCart } from "lucide-react";
 
-function Item({ product, image, price, id, products }) {
-  console.log(product);
-
-  function onAddToCart(product) {
-    console.log("clicked", product, products);
+function Item({ product, image, price, products }) {
+  function onAddToCart() {
+    console.log("clicked", price);
+    console.log("clicked", products);
   }
 
   return (

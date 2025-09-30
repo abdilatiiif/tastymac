@@ -4,7 +4,7 @@ import { Redo } from "lucide-react";
 
 export default function Header() {
   return (
-    <div className="flex items-center justify-center w-full h-20 shadow-lg p-15">
+    <div className="flex items-center justify-center w-full h-20 shadow-lg  p-15">
       <div className="flex flex-col items-center">
         <h1 className="flex items-center text-5xl font-bold animate-pulse">
           {" "}
