@@ -2,8 +2,9 @@ function Menu() {
   return (
     <div>
       <button>Alle Produkter</button>
-      <button>Bruger</button>
+      <button>Burger</button>
       <button>Pølser</button>
+      <button>Drikke</button>
     </div>
   );
 }
