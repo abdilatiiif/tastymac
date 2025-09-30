@@ -35,10 +35,10 @@ function App() {
 
   return (
     <>
-      <ProductsContext.Provider value={products}>
+      <ProductsContext.Provider value={products} dispatch={dispatch}>
         <Header />
         <Menu />
-        <Items />
+        <Items sumVarer={sumVarer} pris={pris} dispatch={dispatch} />
       </ProductsContext.Provider>
     </>
   );

@@ -2,8 +2,10 @@ import { useContext } from "react";
 import Item from "./Item.jsx";
 import { ProductsContext } from "../App.jsx";
 
-function Items({ setSum }) {
+function Items({ sumVarer, pris, dispatch }) {
   const products = useContext(ProductsContext);
+
+  console.log(sumVarer, pris);
 
   console.log(products);
   return (
@@ -16,7 +18,9 @@ function Items({ setSum }) {
           image={p.image}
           category={p.category}
           products={products}
-          setSum={setSum}
+          sumVarer={sumVarer}
+          pris={pris}
+          dispatch={dispatch}
         />
       ))}
     </div>
