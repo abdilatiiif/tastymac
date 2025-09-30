@@ -1,12 +1,11 @@
 import { Hamburger } from "lucide-react";
 import { Bone } from "lucide-react";
 import { CupSoda } from "lucide-react";
-import Items from "./Items";
 
 function Menu() {
   return (
     <>
-      <div className=" mt-3 flex gap-3 items-center justify-center">
+      <div className="bg-stone-200 mt-3 flex gap-3 items-center justify-center">
         <button className=" cursor-pointer bg-orange-400 px-6 text-white py-2 rounded-full transition-all duration-200 hover:bg-orange-600 w-60 ">
           Alle Produkter
         </button>
@@ -20,7 +19,6 @@ function Menu() {
           <CupSoda /> Drikke
         </button>
       </div>
-      <Items />
     </>
   );
 }
