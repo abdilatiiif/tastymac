@@ -37,15 +37,16 @@ const Products = [
     category: "pølse",
     price: 39,
     image:
-      "https://images.pexels.com/photos/4057753/pexels-photo-4057753.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "https://assets.epicurious.com/photos/556dc3555fa91f011a45a5e2/16:9/w_2560%2Cc_limit/20150520_EPI_Summer100-hotdogtechnique-hero-6x4.jpg",
   },
+
   {
     id: "6",
     name: "Jumbo Pølse",
     category: "pølse",
     price: 49,
     image:
-      "https://images.pexels.com/photos/4057754/pexels-photo-4057754.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "https://www.thecookierookie.com/wp-content/uploads/2023/05/featured-grilled-hotdogs-recipe.jpg",
   },
   {
     id: "7",
@@ -53,7 +54,7 @@ const Products = [
     category: "pølse",
     price: 45,
     image:
-      "https://images.pexels.com/photos/4551832/pexels-photo-4551832.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "https://api.photon.aremedia.net.au/wp-content/uploads/sites/11/food/2014/11/28/WomansDayBR108575/classic-hotdogs.jpg?resize=980%2C980",
   },
   {
     id: "8",
@@ -69,7 +70,7 @@ const Products = [
     category: "drikke",
     price: 29,
     image:
-      "https://images.pexels.com/photos/50593/coca-cola-cold-drink-soft-drink-coke-50593.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "https://www.safaricatering.no/wp-content/uploads/2024/11/Fanta-zero.png",
   },
   {
     id: "10",
@@ -77,7 +78,7 @@ const Products = [
     category: "drikke",
     price: 29,
     image:
-      "https://images.pexels.com/photos/1292294/pexels-photo-1292294.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "https://www.safaricatering.no/wp-content/uploads/2024/11/Sprite-zero.png",
   },
   {
     id: "11",

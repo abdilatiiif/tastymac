@@ -7,7 +7,7 @@ function Items() {
 
   console.log(products);
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4 p-10 border-2">
+    <div className="flex flex-wrap items-center justify-center gap-4 p-10">
       {products.map((p) => (
         <Item
           key={p.id}
@@ -15,6 +15,7 @@ function Items() {
           price={p.price}
           image={p.image}
           category={p.category}
+          products={products}
         />
       ))}
     </div>
