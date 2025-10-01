@@ -10,7 +10,7 @@ import SidebarMenu from "./components/SidebarMenu.jsx";
 
 const initialState = {
   sumVarer: 0,
-  isActive: false,
+  isActive: true,
   pris: 0,
   kjøpt: [],
 };
@@ -26,6 +26,12 @@ function reducerFn(state, action) {
     case "leggtilkurv":
       console.log("legg til handlekurv");
       return { ...state, kjøpt: [...state.kjøpt, action.payload] };
+    case "lukk":
+      console.log("lukk handlekurv");
+      return { ...state, isActive: (state.isActive = false) };
+    case "åpne":
+      console.log("åpne handlekurv");
+      return { ...state, isActive: (state.isActive = true) };
   }
 }
 
@@ -49,7 +55,7 @@ function App() {
           kjøpt={kjøpt}
           dispatch={dispatch}
         />
-        <SidebarMenu />
+        <SidebarMenu dispatch={dispatch} isActive={isActive} kjøpt={kjøpt} />
       </ProductsContext.Provider>
     </>
   );
