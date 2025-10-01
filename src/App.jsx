@@ -13,7 +13,7 @@ const initialState = {
   isActive: true,
   pris: 0,
   kjøpt: {},
-  type: "",
+  type: Products,
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -69,9 +69,27 @@ function reducerFn(state, action) {
       return { ...state, isActive: true };
 
     case "type":
-      console.log("filter");
-      return { ...state, type: (state.type = action.payload) };
+      {
+        const products = Products;
 
+        const burger = products.filter((b) => b.category === "burger" && b);
+        const drikke = products.filter((d) => d.category === "drikke" && d);
+        const pølse = products.filter((p) => p.category === "pølse" && p);
+
+        if (action.payload === "burger") {
+          return { ...state, type: (state.type = burger) };
+        }
+        if (action.payload === "all") {
+          return { ...state, type: (state.type = products) };
+        }
+        if (action.payload === "drikke") {
+          return { ...state, type: (state.type = drikke) };
+        }
+        if (action.payload === "pølse") {
+          return { ...state, type: (state.type = pølse) };
+        }
+      }
+      break;
     default:
       return state;
   }
@@ -84,7 +102,7 @@ function App() {
 
   console.log(type);
 
-  const products = Products;
+  /*
 
   const burger = products.filter((b) => b.category === "burger" && b);
   const drikke = products.filter((d) => d.category === "drikke" && d);
@@ -93,12 +111,13 @@ function App() {
   console.log(burger);
   console.log(drikke);
   console.log(pølse);
+*/
 
   return (
     <>
-      <ProductsContext.Provider value={products}>
+      <ProductsContext.Provider value={type}>
         <Header kjøpt={kjøpt} dispatch={dispatch} />
-        <Menu />
+        <Menu dispatch={dispatch} />
         <Items
           sumVarer={sumVarer}
           pris={pris}

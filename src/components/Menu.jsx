@@ -1,20 +1,27 @@
 import { Hamburger } from "lucide-react";
 import { Bone } from "lucide-react";
 import { CupSoda } from "lucide-react";
+import { useState } from "react";
 
-function Menu() {
+function Menu({ dispatch }) {
+  const [active, setActive] = useState(true);
+
   function getAll() {
     console.log("all");
+    dispatch({ type: "type", payload: "all" });
   }
 
   function getBurgers() {
     console.log("get burgers");
+    dispatch({ type: "type", payload: "burger" });
   }
   function getPølser() {
     console.log("get pølser");
+    dispatch({ type: "type", payload: "pølse" });
   }
   function getDrinks() {
     console.log("get drinks");
+    dispatch({ type: "type", payload: "drikke" });
   }
 
   return (
