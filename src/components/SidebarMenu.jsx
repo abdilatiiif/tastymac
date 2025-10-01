@@ -1,12 +1,12 @@
-import { X } from "lucide-react";
-import { ShoppingCart } from "lucide-react";
+import { X, ShoppingCart } from "lucide-react";
 import Kjøptvare from "./Kjøptvare";
 
 function SidebarMenu({ kjøpt, isActive, dispatch, sumVarer }) {
-  console.log(kjøpt);
+  const antallVarer = Object.values(kjøpt).length;
+
   return (
     isActive && (
-      <div className="fixed top-0 right-0 z-20 w-1/4 h-full overflow-y-auto bg-gray-200 shadow-2xl border-l-1 animate-slide-in">
+      <div className="fixed top-0 right-0 z-20 h-full overflow-y-auto bg-gray-200 shadow-2xl w-1/ md:w-1/2 border-l-1 animate-slide-in">
         <div className="sticky top-0 z-10 p-6 bg-white border-b r-0">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-2xl font-bold text-gray-800">Handlekurv</h2>
@@ -18,21 +18,27 @@ function SidebarMenu({ kjøpt, isActive, dispatch, sumVarer }) {
             </button>
           </div>
           <p className="text-gray-600">
-            {kjøpt.length} {kjøpt.length === 1 ? "vare" : "varer"}
+            {antallVarer} {antallVarer === 1 ? "vare" : "varer"}
           </p>
         </div>
-        {kjøpt.length === 0 ? (
+
+        {antallVarer === 0 ? (
           <div className="py-12 text-center">
             <ShoppingCart size={64} className="mx-auto mb-4 text-gray-300" />
             <p className="text-lg text-gray-500">Handlekurven er tom</p>
           </div>
         ) : (
-          // lopp over varene som kommer inn fra kjøpt array
-          kjøpt.map((i) => (
-            <Kjøptvare vare={i} dispatch={dispatch} sumVarer={sumVarer} />
+          Object.values(kjøpt).map((vare) => (
+            <Kjøptvare
+              key={vare.id}
+              vare={vare}
+              dispatch={dispatch}
+              sumVarer={sumVarer}
+            />
           ))
         )}
-        {kjøpt.length > 0 && (
+
+        {antallVarer > 0 && (
           <div className="sticky bottom-0 p-6 bg-white border-t">
             <div className="flex items-center justify-between mb-4">
               <span className="text-xl font-semibold text-gray-800">
