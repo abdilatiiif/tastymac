@@ -13,6 +13,7 @@ const initialState = {
   isActive: true,
   pris: 0,
   kjøpt: {},
+  type: "",
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -67,6 +68,10 @@ function reducerFn(state, action) {
     case "åpne":
       return { ...state, isActive: true };
 
+    case "type":
+      console.log("filter");
+      return { ...state, type: (state.type = action.payload) };
+
     default:
       return state;
   }
@@ -75,11 +80,19 @@ function reducerFn(state, action) {
 function App() {
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
-  const { sumVarer, isActive, pris, kjøpt } = state;
+  const { sumVarer, isActive, pris, kjøpt, type } = state;
 
-  console.log(kjøpt);
+  console.log(type);
 
   const products = Products;
+
+  const burger = products.filter((b) => b.category === "burger" && b);
+  const drikke = products.filter((d) => d.category === "drikke" && d);
+  const pølse = products.filter((p) => p.category === "pølse" && p);
+
+  console.log(burger);
+  console.log(drikke);
+  console.log(pølse);
 
   return (
     <>

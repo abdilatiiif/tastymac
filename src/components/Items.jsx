@@ -5,8 +5,6 @@ import { ProductsContext } from "../App.jsx";
 function Items({ sumVarer, pris, dispatch, kjøpt }) {
   const products = useContext(ProductsContext);
 
-  console.log(kjøpt);
-
   return (
     <div className="flex flex-wrap items-center justify-center gap-4 p-10">
       {products.map((p) => (
