@@ -32,6 +32,9 @@ function reducerFn(state, action) {
     case "åpne":
       console.log("åpne handlekurv");
       return { ...state, isActive: (state.isActive = true) };
+    case "avbestill":
+      console.log("avbestill varer");
+      return { ...state, sumVarer: state.sumVarer - action.payload };
   }
 }
 
@@ -55,7 +58,12 @@ function App() {
           kjøpt={kjøpt}
           dispatch={dispatch}
         />
-        <SidebarMenu dispatch={dispatch} isActive={isActive} kjøpt={kjøpt} />
+        <SidebarMenu
+          dispatch={dispatch}
+          isActive={isActive}
+          kjøpt={kjøpt}
+          sumVarer={sumVarer}
+        />
       </ProductsContext.Provider>
     </>
   );

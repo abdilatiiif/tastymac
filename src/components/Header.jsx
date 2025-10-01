@@ -31,7 +31,7 @@ export default function Header({ kjøpt, dispatch }) {
           </span>
         )}
       </button>
-      <SidebarMenu kjøpt={kjøpt} />
+      <SidebarMenu kjøpt={kjøpt} dispatch={dispatch} />
     </div>
   );
 }
