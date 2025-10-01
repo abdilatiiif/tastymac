@@ -12,7 +12,7 @@ const initialState = {
   sumVarer: 0,
   isActive: true,
   pris: 0,
-  kjøpt: [],
+  kjøpt: {},
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -21,20 +21,54 @@ export const ProductsContext = createContext([]);
 function reducerFn(state, action) {
   switch (action.type) {
     case "kjøp":
-      console.log("summer varer");
       return { ...state, sumVarer: state.sumVarer + action.payload };
-    case "leggtilkurv":
-      console.log("legg til handlekurv");
-      return { ...state, kjøpt: [...state.kjøpt, action.payload] };
-    case "lukk":
-      console.log("lukk handlekurv");
-      return { ...state, isActive: (state.isActive = false) };
-    case "åpne":
-      console.log("åpne handlekurv");
-      return { ...state, isActive: (state.isActive = true) };
+
+    case "leggtilkurv": {
+      const vare = action.payload;
+      const eksisterende = state.kjøpt[vare.id];
+
+      return {
+        ...state,
+        kjøpt: {
+          ...state.kjøpt,
+          [vare.id]: eksisterende
+            ? { ...eksisterende, antall: eksisterende.antall + 1 }
+            : { ...vare, antall: 1 },
+        },
+      };
+    }
+
+    case "reduserAntall": {
+      const id = action.payload;
+      const eksisterende = state.kjøpt[id];
+      if (!eksisterende || eksisterende.antall <= 1) return state;
+
+      return {
+        ...state,
+        kjøpt: {
+          ...state.kjøpt,
+          [id]: { ...eksisterende, antall: eksisterende.antall - 1 },
+        },
+      };
+    }
+
+    case "fjernFraKurv": {
+      const newKjøpt = { ...state.kjøpt };
+      delete newKjøpt[action.payload];
+      return { ...state, kjøpt: newKjøpt };
+    }
+
     case "avbestill":
-      console.log("avbestill varer");
       return { ...state, sumVarer: state.sumVarer - action.payload };
+
+    case "lukk":
+      return { ...state, isActive: false };
+
+    case "åpne":
+      return { ...state, isActive: true };
+
+    default:
+      return state;
   }
 }
 
@@ -43,7 +77,7 @@ function App() {
 
   const { sumVarer, isActive, pris, kjøpt } = state;
 
-  console.log(kjøpt.length);
+  console.log(kjøpt);
 
   const products = Products;
 

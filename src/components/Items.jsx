@@ -12,11 +12,11 @@ function Items({ sumVarer, pris, dispatch, kjøpt }) {
       {products.map((p) => (
         <Item
           key={p.id}
+          id={p.id}
           product={p.name}
           price={p.price}
           image={p.image}
           category={p.category}
-          products={products}
           sumVarer={sumVarer}
           pris={pris}
           dispatch={dispatch}

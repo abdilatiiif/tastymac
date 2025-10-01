@@ -4,6 +4,7 @@ import { Redo } from "lucide-react";
 import SidebarMenu from "./SidebarMenu";
 
 export default function Header({ kjøpt, dispatch }) {
+  console.log(Object.entries(kjøpt).length);
   return (
     <div className="flex items-center justify-center w-full h-20 transition-all duration-500 shadow-lg p-15">
       <div className="flex flex-col items-center">
@@ -25,9 +26,9 @@ export default function Header({ kjøpt, dispatch }) {
         className="fixed z-10 p-4 text-white transition-all duration-200 bg-red-600 rounded-full shadow-lg cursor-pointer top-6 right-6 hover:bg-red-700 active:scale-95"
       >
         <ShoppingCart />
-        {kjøpt.length >= 1 && (
+        {Object.entries(kjøpt).length >= 1 && (
           <span className="absolute flex items-center justify-center text-sm font-bold text-gray-900 bg-yellow-400 rounded-full -top-2 -right-2 w-7 h-7 animate-bounce">
-            {kjøpt.length}
+            {Object.entries(kjøpt).length}
           </span>
         )}
       </button>
