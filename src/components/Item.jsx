@@ -1,12 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 
-function Item({ product, image, price, id, products }) {
-  console.log(product);
-
-  function onAddToCart(product) {
-    console.log("clicked", product, products);
-  }
-
+function Item({ product, image, price, products, sumVarer, pris, dispatch }) {
   return (
     <div className="overflow-hidden transition-shadow duration-300 bg-white rounded-lg shadow-md w-75 hover:shadow-xl">
       <div className="h-48 overflow-hidden">
@@ -21,7 +15,13 @@ function Item({ product, image, price, id, products }) {
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-gray-900">{price}＄</span>
           <button
-            onClick={() => onAddToCart(product)}
+            onClick={() => {
+              dispatch({ type: "kjøp", payload: price });
+              dispatch({
+                type: "leggtilkurv",
+                payload: [product, image, price],
+              });
+            }}
             className="flex items-center gap-2 px-4 py-2 text-white transition-colors duration-200 transform bg-red-600 rounded-lg hover:bg-red-700 active:scale-95"
           >
             <ShoppingCart size={18} />

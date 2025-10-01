@@ -2,10 +2,11 @@ import { useContext } from "react";
 import Item from "./Item.jsx";
 import { ProductsContext } from "../App.jsx";
 
-function Items() {
+function Items({ sumVarer, pris, dispatch, kjøpt }) {
   const products = useContext(ProductsContext);
 
-  console.log(products);
+  console.log(kjøpt);
+
   return (
     <div className="flex flex-wrap items-center justify-center gap-4 p-10">
       {products.map((p) => (
@@ -16,6 +17,10 @@ function Items() {
           image={p.image}
           category={p.category}
           products={products}
+          sumVarer={sumVarer}
+          pris={pris}
+          dispatch={dispatch}
+          kjøpt={kjøpt}
         />
       ))}
     </div>
