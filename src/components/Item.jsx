@@ -17,6 +17,10 @@ function Item({ product, image, price, products, sumVarer, pris, dispatch }) {
           <button
             onClick={() => {
               dispatch({ type: "kjøp", payload: price });
+              dispatch({
+                type: "leggtilkurv",
+                payload: [product, image, price],
+              });
             }}
             className="flex items-center gap-2 px-4 py-2 text-white transition-colors duration-200 transform bg-red-600 rounded-lg hover:bg-red-700 active:scale-95"
           >
