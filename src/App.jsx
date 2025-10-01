@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       <ProductsContext.Provider value={products}>
-        <Header kjøpt={kjøpt} />
+        <Header kjøpt={kjøpt} dispatch={dispatch} />
         <Menu />
         <Items
           sumVarer={sumVarer}
