@@ -6,7 +6,7 @@ function SidebarMenu({ kjøpt, isActive, dispatch, sumVarer }) {
 
   return (
     isActive && (
-      <div className="fixed top-0 right-0 z-20 w-1/4 h-full overflow-y-auto bg-gray-200 shadow-2xl border-l-1 animate-slide-in">
+      <div className="fixed top-0 right-0 z-20 h-full overflow-y-auto bg-gray-200 shadow-2xl w-1/ md:w-1/2 border-l-1 animate-slide-in">
         <div className="sticky top-0 z-10 p-6 bg-white border-b r-0">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-2xl font-bold text-gray-800">Handlekurv</h2>

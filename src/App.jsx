@@ -10,7 +10,7 @@ import SidebarMenu from "./components/SidebarMenu.jsx";
 
 const initialState = {
   sumVarer: 0,
-  isActive: true,
+  isActive: false,
   pris: 0,
   kjøpt: {},
   type: Products,
@@ -99,8 +99,6 @@ function App() {
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
   const { sumVarer, isActive, pris, kjøpt, type } = state;
-
-  console.log(type);
 
   /*
 

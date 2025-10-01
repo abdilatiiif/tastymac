@@ -4,7 +4,6 @@ import { Redo } from "lucide-react";
 import SidebarMenu from "./SidebarMenu";
 
 export default function Header({ kjøpt, dispatch }) {
-  console.log(Object.entries(kjøpt).length);
   return (
     <div className="flex items-center justify-center w-full h-20 transition-all duration-500 shadow-lg p-15">
       <div className="flex flex-col items-center">

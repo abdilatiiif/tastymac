@@ -4,50 +4,40 @@ import { CupSoda } from "lucide-react";
 import { useState } from "react";
 
 function Menu({ dispatch }) {
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
 
-  function getAll() {
-    console.log("all");
-    dispatch({ type: "type", payload: "all" });
+  function handleClick(type) {
+    dispatch({ type: "type", payload: type });
+    setActive(type);
   }
 
-  function getBurgers() {
-    console.log("get burgers");
-    dispatch({ type: "type", payload: "burger" });
-  }
-  function getPølser() {
-    console.log("get pølser");
-    dispatch({ type: "type", payload: "pølse" });
-  }
-  function getDrinks() {
-    console.log("get drinks");
-    dispatch({ type: "type", payload: "drikke" });
-  }
+  const ikkeAktiv = `flex flex-col items-center px-6 py-2 text-black transition-all duration-200 rounded-full cursor-pointer hover:bg-green-100 hover:black`;
+  const aktivType = `flex flex-col items-center px-6 py-2 text-black bg-orange-300 transition-all duration-200 rounded-full cursor-pointer hover:bg-green-100 hover:black`;
 
   return (
     <>
       <div className="flex items-center justify-center gap-3 mt-3 ">
         <button
-          onClick={() => getAll()}
-          className="px-6 py-2 text-white transition-all duration-200 bg-orange-400 rounded-full cursor-pointer hover:bg-orange-600 w-60"
+          onClick={() => handleClick("all")}
+          className={`${ikkeAktiv} ${active === "all" && aktivType}`}
         >
           Alle Produkter
         </button>
         <button
-          onClick={() => getBurgers()}
-          className="flex flex-col items-center px-6 py-2 text-black transition-all duration-200 rounded-full cursor-pointer hover:bg-green-100 hover:black"
+          onClick={() => handleClick("burger")}
+          className={`${ikkeAktiv} ${active === "burger" && aktivType}`}
         >
           <Hamburger /> Burger
         </button>
         <button
-          onClick={() => getPølser()}
-          className="flex flex-col items-center px-6 py-2 text-black transition-all duration-200 rounded-full cursor-pointer hover:bg-green-100 hover:black"
+          onClick={() => handleClick("pølse")}
+          className={`${ikkeAktiv} ${active === "pølse" && aktivType}`}
         >
           <Bone /> Pølser
         </button>
         <button
-          onClick={() => getDrinks()}
-          className="flex flex-col items-center px-6 py-2 text-black transition-all duration-200 rounded-full cursor-pointer hover:bg-green-100 hover:black"
+          onClick={() => handleClick("drikke")}
+          className={`${ikkeAktiv} ${active === "drikke" && aktivType}`}
         >
           <CupSoda /> Drikke
         </button>
